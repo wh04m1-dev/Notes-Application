@@ -1,4 +1,4 @@
-Notes Application
+# Notes Application
 
 Feature Overview:
 
@@ -32,10 +32,12 @@ Functional Requirements:
    - Simple filtering and sorting functionality
    - Search
    - Responsive design using TailwindCss
-   - Perform basic API integrations using Axios or Fetch
+   - Perform basic API integrations using Axios
    - State management
 2. Backend
    - Authentication & Authorization
    - Create, read, update, and delete (CRUD) notes
    - user can only read, update and delete their own notes
    - using Dapper for ORM with a SQL Server database
+
+Use Docker

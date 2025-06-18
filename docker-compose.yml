@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  frontend:
+    build: ./frontend
+    ports:
+      - "8089:80"
+    depends_on:
+      - backend
+    environment:
+      - VITE_API_URL=http://localhost/api
+
+  backend:
+    build: ./backend
+    ports:
+      - "5000:80"
+    depends_on:
+      - db
+    environment:
+      - ConnectionStrings__DefaultConnection=Server=db;Database=NotesApp;User=sa;Password=YourStrong@Passw0rd;
+
+  db:
+    build: ./database
+    ports:
+      - "1433:1433"
+    environment:
+      - SA_PASSWORD=YourStrong@Passw0rd
+      - ACCEPT_EULA=Y
+    volumes:
+      - sql_data:/var/opt/mssql
+
+volumes:
+  sql_data:
